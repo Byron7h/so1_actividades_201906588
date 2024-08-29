@@ -59,4 +59,42 @@ echo "Hola $GITHUB_USER. User ID: $USER_ID. Cuenta fue creada el: $CREATED_AT." 
 
 
 # Crear el cronjob
+
+# cron es un administrador de trabajos programados en sistemas Unix y Linux. Permite ejecutar comandos o scripts a intervalos regulares, en momentos específicos o en fechas determinadas.
+# 1. Abrir el Editor de Cron Jobs
+    # crontab -e
+# 2. Añadir una Entrada al Cron Job
+# */5 * * * * /home/usuario/scripts/consultar_github.sh
+
+# Desglose de la Sintaxis
+    # */1 * * * *: Especifica que el comando debe ejecutarse cada 5 minutos.
+   
+    # */5: Cada 5 minutos.
+    # *: Cada hora.
+    # *: Cada día del mes.
+    # *: Cada mes.
+    # *: Cada día de la semana.
+
+    # Minuto (0-59)
+    # Hora (0-23)
+    # Día del mes (1-31)
+    # Mes (1-12)
+    # Día de la semana (0-6) donde 0 es domingo
+
+    # Cada campo puede tener:
+
+    # Un valor específico (por ejemplo, 5 para el minuto 5).
+    # Un rango (por ejemplo, 1-5 para días 1 a 5).
+    # Un valor * para "cada" unidad en ese campo.
+    # Un valor */n para "cada n" unidades.
+
+    # 15: El comando se ejecuta una vez por hora, específicamente en el minuto 15 de cada hora. 00:15 - 01:15 - 02:15
+    # */15: El comando se ejecuta cada 15 minutos dentro de cada hora.00:00-00:15-00:30
+
+
+# 3. Guardar y salir del editor
+
+# 4. Verificar que el cron job está activo:
+    # crontab -l
+
 #(crontab -l 2>/dev/null; echo "*/5 * * * * /path/to/your/script.sh") | crontab -
